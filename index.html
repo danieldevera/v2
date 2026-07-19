@@ -56,7 +56,9 @@ nav{position:sticky;top:0;z-index:50;background:var(--n0);border-bottom:1px soli
 .nav-cta{padding:12px 22px}
 
 /* Hero */
-.hero{background:var(--n0) url("assets/dark-texture.jpg") center/cover no-repeat;border-bottom:1px solid var(--line)}
+.hero{position:relative;background:var(--n0) url("assets/hero-neon.jpg") center/cover no-repeat;border-bottom:1px solid var(--line)}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.62) 0%,rgba(0,0,0,.28) 45%,rgba(0,0,0,.72) 100%),linear-gradient(100deg,rgba(0,0,0,.75) 0%,rgba(0,0,0,.35) 60%,rgba(0,0,0,.15) 100%)}
+.hero .container{position:relative;z-index:1}
 .hero .container{padding-top:104px;padding-bottom:92px}
 .hero-eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:44px}
 .sq{width:10px;height:10px;background:var(--accent);flex:none}
