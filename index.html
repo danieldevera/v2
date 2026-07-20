@@ -512,7 +512,14 @@ footer{background:var(--n0);border-top:1px solid var(--line)}
   var v=document.querySelector('video.herovid');
   if(!v) return;
   if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){ v.removeAttribute('autoplay'); return; }
-  function go(){ var p=v.play(); if(p && p.catch) p.catch(function(){}); }
+  var onscreen=true;
+  function go(){ if(!onscreen || document.hidden) return; var p=v.play(); if(p && p.catch) p.catch(function(){}); }
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){
+      onscreen=es[0].isIntersecting;
+      if(onscreen) go(); else v.pause();
+    },{threshold:0}).observe(v);
+  }
   go();
   document.addEventListener('visibilitychange', function(){ if(!document.hidden) go(); });
   window.addEventListener('pageshow', go);
