@@ -40,7 +40,9 @@ a{color:inherit;text-decoration:none}
 .body{font-size:18px;line-height:1.5;letter-spacing:-.02em;font-weight:400}
 .body-sm{font-size:16px;line-height:1.5;letter-spacing:-.02em;font-weight:400}
 .caption{font-size:14px;line-height:1.5;letter-spacing:-.02em;font-weight:400}
-.btn{display:inline-flex;align-items:center;background:#fff;color:#000;font-weight:500;font-size:17px;letter-spacing:-.02em;transition:background .18s}
+.btn{display:inline-flex;align-items:center;background:#fff;color:#000;border:1px solid transparent;font-weight:500;font-size:17px;letter-spacing:-.02em;transition:background .18s,border-color .18s}
+.btn-dark{background:#000;color:#fff;border-color:var(--line)}
+.btn-dark:hover{background:#141414;border-color:#5a5a5a}
 .btn:hover{background:var(--accent)}
 .ghost{border-bottom:1px solid transparent;transition:opacity .18s}
 .ghost:hover{opacity:.55}
@@ -326,7 +328,7 @@ footer{background:var(--n0);border-top:1px solid var(--line)}
     <p class="hero-intro body-lg">For fourteen years I built and ran EDIT., Portugal&rsquo;s leading school of design, technology and creative skills: the courses, the teams, the partnerships, and the enrolment engine that filled them, year after year.</p>
     <div class="hero-actions">
       <a class="btn" href="#b-work">See selected work</a>
-      <a class="ghost label" href="#b-about">About Daniel</a>
+      <a class="btn btn-dark" href="#b-about">About Daniel</a>
     </div>
   </div>
 </header>
