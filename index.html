@@ -60,20 +60,20 @@ nav{position:sticky;top:0;z-index:50;background:var(--n0);border-bottom:1px soli
 .herovid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;pointer-events:none}
 .herogrid{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.5;background-image:linear-gradient(to right,rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,.045) 1px,transparent 1px);background-size:96px 96px}
 .collage{position:absolute;inset:0;z-index:2;pointer-events:none}
-.collage .cc{position:absolute;margin:0;overflow:hidden;border:1px solid var(--line);background:#111;box-shadow:0 24px 60px rgba(0,0,0,.55)}
-.collage .cc img{width:100%;height:100%;object-fit:cover;display:block;opacity:.92}
-.collage .cchip{position:absolute;background:rgba(14,14,14,.82);border:1px solid var(--line);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);padding:14px 16px;max-width:270px;box-shadow:0 20px 50px rgba(0,0,0,.5)}
-.collage .cchip b{display:block;font-size:14px;font-weight:700;letter-spacing:-.02em;color:var(--accent);margin-bottom:5px}
-.collage .cchip span{display:block;font-size:12.5px;line-height:1.42;letter-spacing:-.01em;color:var(--muted)}
-.collage .cc{width:340px;height:212px}
-.cc-a{top:6%;left:3%}
-.cchip-a{top:36%;left:6%}
-.cc-b{top:9%;right:3%}
-.cchip-b{top:38%;right:6%}
-.cc-c{bottom:7%;left:5%}
-.cchip-c{bottom:36%;left:2%}
-.cc-d{bottom:10%;right:5%}
-.cchip-d{bottom:38%;right:2%}
+.ccgroup{position:absolute;width:340px}
+.ccgroup .cc{position:relative;margin:0;width:340px;height:212px;overflow:hidden;border:1px solid var(--line);background:#111;box-shadow:0 24px 60px rgba(0,0,0,.55)}
+.ccgroup .cc img{width:100%;height:100%;object-fit:cover;display:block;opacity:.92}
+.ccgroup .cchip{position:absolute;bottom:-26px;background:rgba(14,14,14,.92);border:1px solid var(--line);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);padding:12px 15px;max-width:252px;box-shadow:0 18px 44px rgba(0,0,0,.6)}
+.ccgroup .cchip b{display:block;font-size:13.5px;font-weight:700;letter-spacing:-.02em;color:var(--accent);margin-bottom:4px}
+.ccgroup .cchip span{display:block;font-size:12.5px;line-height:1.4;letter-spacing:-.01em;color:var(--muted)}
+.g-a{top:7%;left:3%}
+.g-a .cchip{left:-22px}
+.g-b{top:10%;right:3%}
+.g-b .cchip{right:-22px}
+.g-c{bottom:12%;left:5%}
+.g-c .cchip{left:-22px}
+.g-d{bottom:14%;right:5%}
+.g-d .cchip{right:-22px}
 .hero::before{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:radial-gradient(ellipse 46% 52% at 50% 50%,rgba(0,0,0,.86) 0%,rgba(0,0,0,.72) 45%,rgba(0,0,0,.30) 100%),linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.20) 40%,rgba(0,0,0,.60) 100%)}
 .hero .container{position:relative;z-index:4}
 .hero-center{text-align:center;padding-top:92px;padding-bottom:92px}
@@ -81,8 +81,8 @@ nav{position:sticky;top:0;z-index:50;background:var(--n0);border-bottom:1px soli
 .hero-center h1{margin:0 auto;max-width:13ch}
 .hero-intro{color:var(--muted);max-width:48ch;margin:34px auto 0}
 .hero-center .hero-actions{justify-content:center;margin-top:42px}
-@media (max-width:1300px){.cchip-a,.cchip-d{display:none}}
-@media (max-width:1100px){.collage .cc,.collage .cchip{display:none}}
+@media (max-width:1360px){.g-a .cchip,.g-d .cchip{display:none}}
+@media (max-width:1150px){.collage{display:none}}
 .hero-eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:44px}
 .sq{width:10px;height:10px;background:var(--accent);flex:none}
 h1{font-size:92px;line-height:.98;letter-spacing:-.035em;font-weight:700;max-width:16ch}
@@ -242,14 +242,22 @@ footer{background:var(--n0);border-top:1px solid var(--line)}
   </video>
   <div class="herogrid" aria-hidden="true"></div>
   <div class="collage" aria-hidden="true">
-    <figure class="cc cc-a"><img src="assets/card-a.jpg" alt="" loading="lazy"></figure>
-    <div class="cchip cchip-a"><b>io.foundation</b><span>47 study grants funded for students who could not otherwise start</span></div>
-    <figure class="cc cc-b"><img src="assets/card-b.jpg" alt="" loading="lazy"></figure>
-    <div class="cchip cchip-b"><b>Industry Sessions</b><span>About 1,200 industry professionals a year, in the room with students</span></div>
-    <figure class="cc cc-c"><img src="assets/card-c.jpg" alt="" loading="lazy"></figure>
-    <div class="cchip cchip-c"><b>Pfizer &middot; Galp &middot; Nestl&eacute;</b><span>Executive education delivered inside 24+ organisations</span></div>
-    <figure class="cc cc-d"><img src="assets/card-d.jpg" alt="" loading="lazy"></figure>
-    <div class="cchip cchip-d"><b>Red Bull &middot; Samsung &middot; CUPRA</b><span>Real briefs set inside the curriculum, with real consequences</span></div>
+    <div class="ccgroup g-a">
+      <figure class="cc"><img src="assets/card-a.jpg" alt="" loading="lazy"></figure>
+      <div class="cchip"><b>io.foundation</b><span>47 study grants funded</span></div>
+    </div>
+    <div class="ccgroup g-b">
+      <figure class="cc"><img src="assets/card-b.jpg" alt="" loading="lazy"></figure>
+      <div class="cchip"><b>Industry Sessions</b><span>~1,200 industry professionals a year</span></div>
+    </div>
+    <div class="ccgroup g-c">
+      <figure class="cc"><img src="assets/card-c.jpg" alt="" loading="lazy"></figure>
+      <div class="cchip"><b>Framer Connect</b><span>Community built and run from zero</span></div>
+    </div>
+    <div class="ccgroup g-d">
+      <figure class="cc"><img src="assets/card-d.jpg" alt="" loading="lazy"></figure>
+      <div class="cchip"><b>Red Bull &middot; Samsung &middot; CUPRA</b><span>Real briefs inside the curriculum</span></div>
+    </div>
   </div>
   <div class="container hero-center">
     <div class="hero-eyebrow eyebrow"><span class="sq"></span>Daniel Devera &middot; Education management &amp; marketing</div>
