@@ -57,14 +57,14 @@ nav{position:sticky;top:0;z-index:50;background:var(--n0);border-bottom:1px soli
 
 /* Hero */
 .hero{position:relative;overflow:hidden;background:var(--n0) url("assets/hero-waves.jpg") center/cover no-repeat;border-bottom:1px solid var(--line);min-height:1180px;display:flex;align-items:center}
-.herovid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;pointer-events:none}
-.herogrid{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.5;background-image:linear-gradient(to right,rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,.045) 1px,transparent 1px);background-size:96px 96px}
+.herovid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;pointer-events:none;filter:brightness(1.35) contrast(1.05)}
+.herogrid{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.5;background-image:linear-gradient(to right,rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,.06) 1px,transparent 1px);background-size:96px 96px}
 .collage{position:absolute;inset:0;z-index:4;pointer-events:none}
 .ccgroup{position:absolute;width:340px}
 .ccgroup{pointer-events:auto}
 .ccgroup .cc{position:relative;margin:0;width:340px;height:212px;overflow:hidden;border:1px solid var(--line);background:#111;box-shadow:0 24px 60px rgba(0,0,0,.55);transition:transform .5s cubic-bezier(.16,.84,.34,1),box-shadow .45s ease,border-color .45s ease}
-.ccgroup .cc img{width:100%;height:100%;object-fit:cover;display:block;opacity:.9;filter:saturate(.45) brightness(.82);transition:filter .5s ease,opacity .5s ease,transform .6s cubic-bezier(.16,.84,.34,1)}
-.ccgroup:hover .cc img{opacity:1;filter:saturate(1) brightness(1);transform:scale(1.03)}
+.ccgroup .cc img{width:100%;height:100%;object-fit:cover;display:block;opacity:1;filter:saturate(.9) brightness(.96);transition:filter .5s ease,opacity .5s ease,transform .6s cubic-bezier(.16,.84,.34,1)}
+.ccgroup:hover .cc img{opacity:1;filter:saturate(1.08) brightness(1.1);transform:scale(1.03)}
 .ccgroup:hover .cc{border-color:#4a4a4a;box-shadow:0 34px 78px rgba(0,0,0,.72)}
 .g-a:hover .cc,.g-c:hover .cc,.g-e:hover .cc{transform:translate(18px,-6px)}
 .g-b:hover .cc,.g-d:hover .cc,.g-f:hover .cc{transform:translate(-18px,-6px)}
@@ -85,7 +85,7 @@ nav{position:sticky;top:0;z-index:50;background:var(--n0);border-bottom:1px soli
 .g-e .cchip{left:-20px}
 .g-f{top:77%;right:7%}
 .g-f .cchip{right:-20px}
-.hero::before{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:radial-gradient(ellipse 46% 52% at 50% 50%,rgba(0,0,0,.86) 0%,rgba(0,0,0,.72) 45%,rgba(0,0,0,.30) 100%),linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.20) 40%,rgba(0,0,0,.60) 100%)}
+.hero::before{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:radial-gradient(ellipse 44% 50% at 50% 50%,rgba(0,0,0,.62) 0%,rgba(0,0,0,.42) 45%,rgba(0,0,0,.10) 100%),linear-gradient(180deg,rgba(0,0,0,.34) 0%,rgba(0,0,0,.06) 42%,rgba(0,0,0,.38) 100%)}
 .hero .container{position:relative;z-index:5}
 .hero-center{text-align:center;padding-top:92px;padding-bottom:92px}
 .hero-center .hero-eyebrow{justify-content:center;margin-bottom:34px}
