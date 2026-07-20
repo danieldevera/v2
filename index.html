@@ -200,6 +200,41 @@ footer{background:var(--n0);border-top:1px solid var(--line)}
 @media (prefers-reduced-motion:reduce){.herovid{display:none}}
 @media (max-width:760px){.herovid{display:none}}
 
+
+/* ---- load animation ---- */
+.js .hero-center .hero-eyebrow,
+.js .hero-center h1,
+.js .hero-intro,
+.js .hero-center .hero-actions{opacity:0;transform:translateY(34px)}
+.js .ccgroup{opacity:0}
+.js .g-a{transform:translate(115px,85px) scale(.93)}
+.js .g-b{transform:translate(-115px,85px) scale(.93)}
+.js .g-c{transform:translate(145px,0) scale(.93)}
+.js .g-d{transform:translate(-145px,0) scale(.93)}
+.js .g-e{transform:translate(115px,-85px) scale(.93)}
+.js .g-f{transform:translate(-115px,-85px) scale(.93)}
+
+.js.ready .hero-center .hero-eyebrow,
+.js.ready .hero-center h1,
+.js.ready .hero-intro,
+.js.ready .hero-center .hero-actions{opacity:1;transform:none;
+  transition:opacity .78s cubic-bezier(.16,.84,.34,1),transform .78s cubic-bezier(.16,.84,.34,1)}
+.js.ready .hero-center .hero-eyebrow{transition-delay:.05s}
+.js.ready .hero-center h1{transition-delay:.14s}
+.js.ready .hero-intro{transition-delay:.30s}
+.js.ready .hero-center .hero-actions{transition-delay:.42s}
+
+.js.ready .ccgroup{opacity:1;transform:translate(0,0) scale(1);
+  transition:opacity .85s cubic-bezier(.16,.84,.34,1),transform 1.05s cubic-bezier(.16,.84,.34,1)}
+.js.ready .g-c,.js.ready .g-d{transition-delay:.60s}
+.js.ready .g-a,.js.ready .g-b{transition-delay:.74s}
+.js.ready .g-e,.js.ready .g-f{transition-delay:.88s}
+
+@media (prefers-reduced-motion:reduce){
+  .js .hero-center .hero-eyebrow,.js .hero-center h1,.js .hero-intro,.js .hero-center .hero-actions,
+  .js .ccgroup,.js .g-a,.js .g-b,.js .g-c,.js .g-d,.js .g-e,.js .g-f{opacity:1;transform:none;transition:none}
+}
+
 /* Responsive */
 @media (max-width:760px){
   .container{padding-left:24px;padding-right:24px}
@@ -226,6 +261,7 @@ footer{background:var(--n0);border-top:1px solid var(--line)}
 }
 </style>
 </head>
+<script>document.documentElement.classList.add('js')</script>
 <body id="b-top">
 
 <nav>
@@ -433,6 +469,15 @@ footer{background:var(--n0);border-top:1px solid var(--line)}
   window.addEventListener('pageshow', go);
   document.addEventListener('click', go, {once:true});
   document.addEventListener('touchstart', go, {once:true, passive:true});
+})();
+</script>
+<script>
+(function(){
+  var d=document.documentElement;
+  function ready(){ requestAnimationFrame(function(){ requestAnimationFrame(function(){ d.classList.add('ready'); }); }); }
+  if(document.readyState==='complete') ready();
+  else window.addEventListener('load', ready);
+  setTimeout(function(){ d.classList.add('ready'); }, 1600); /* safety net */
 })();
 </script>
 </body>
