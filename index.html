@@ -477,6 +477,17 @@ footer{background:var(--n0);border-top:1px solid var(--line)}
 <script>
 (function(){
   var d=document.documentElement;
+
+  /* shuffle which card lands in which slot; each slot carries its own
+     position, inward start vector and trigger delay, so the layout AND
+     the choreography differ on every load. Groups keep their own caption. */
+  try{
+    var groups=[].slice.call(document.querySelectorAll('.ccgroup'));
+    var slots=['g-a','g-b','g-c','g-d','g-e','g-f'];
+    for(var i=slots.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=slots[i]; slots[i]=slots[j]; slots[j]=t; }
+    groups.forEach(function(g,n){ slots.forEach(function(s){ g.classList.remove(s); }); g.classList.add(slots[n]); });
+  }catch(e){}
+
   function ready(){ requestAnimationFrame(function(){ requestAnimationFrame(function(){ d.classList.add('ready'); }); }); }
   if(document.readyState==='complete') ready();
   else window.addEventListener('load', ready);
