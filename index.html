@@ -255,13 +255,13 @@ footer{background:var(--n0);border-top:1px solid var(--line)}
 .brands .container{margin-bottom:40px}
 .brands .eyebrow{margin-bottom:14px}
 .brands-note{color:var(--muted);max-width:62ch}
-.marquee{position:relative;background:#fff;padding:26px 0;overflow:hidden}
+.marquee{position:relative;background:transparent;padding:20px 0;overflow:hidden}
 .mtrack{display:flex;width:max-content;animation:brandscroll 64s linear infinite;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 5%,#000 95%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 5%,#000 95%,transparent 100%)}
 .marquee:hover .mtrack{animation-play-state:paused}
 .mset{display:flex;align-items:center;gap:72px;padding-right:72px}
 .mitem{display:flex;align-items:center;justify-content:center;height:42px;flex:none}
-.mitem img{height:100%;width:auto;max-width:160px;object-fit:contain;opacity:.82;transition:opacity .35s ease,transform .35s ease}
-.mitem:hover img{opacity:1;transform:scale(1.06)}
+.mitem img{height:100%;width:auto;max-width:170px;object-fit:contain;filter:brightness(0) invert(1);opacity:.62;transition:opacity .35s ease,transform .35s ease}
+.mitem:hover img{opacity:1;transform:scale(1.05)}
 .mword{font-size:21px;font-weight:700;letter-spacing:-.025em;color:var(--muted);white-space:nowrap;transition:color .35s ease}
 .mitem:hover .mword{color:#fff}
 @keyframes brandscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
@@ -394,48 +394,40 @@ footer{background:var(--n0);border-top:1px solid var(--line)}
   <div class="marquee">
     <div class="mtrack">
       <div class="mset">
-        <span class="mitem"><img src="assets/logos/redbull.png" alt="Red Bull" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/adidas.png" alt="Adidas" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/cupra.png" alt="CUPRA" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/governo.png" alt="Governo de Portugal" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/samsung.png" alt="Samsung" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/worten.png" alt="Worten" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/fnac.png" alt="Fnac" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/galp.png" alt="Galp" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/farfetch.png" alt="Farfetch" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/yves-rocher.png" alt="Yves Rocher" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/ageas.png" alt="Ageas" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/nestle.png" alt="Nestl&eacute;" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/lg.png" alt="LG" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/mercedes-benz.png" alt="Mercedes-Benz" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/loreal.png" alt="L&rsquo;Or&eacute;al" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/vans.png" alt="Vans" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/vodafone.png" alt="Vodafone" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/santander.png" alt="Santander" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/framer.png" alt="Framer" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/sketch.png" alt="Sketch" loading="lazy"></span>
+        <span class="mitem"><img src="assets/logos-w/redbull.png" alt="Red Bull" loading="lazy"></span>
+        <span class="mitem"><img src="assets/logos-w/adidas.svg" alt="Adidas" loading="lazy"></span>
+        <span class="mitem"><img src="assets/logos-w/samsung.png" alt="Samsung" loading="lazy"></span>
+        <span class="mitem"><img src="assets/logos-w/governo-de-portugal.svg" alt="Governo de Portugal" loading="lazy"></span>
+        <span class="mitem"><img src="assets/logos-w/worten.svg" alt="Worten" loading="lazy"></span>
+        <span class="mitem"><img src="assets/logos-w/fnac.svg" alt="Fnac" loading="lazy"></span>
+        <span class="mitem"><img src="assets/logos-w/galp.svg" alt="Galp" loading="lazy"></span>
+        <span class="mitem"><img src="assets/logos-w/farfetch.svg" alt="Farfetch" loading="lazy"></span>
+        <span class="mitem"><img src="assets/logos-w/yves-rocher.svg" alt="Yves Rocher" loading="lazy"></span>
+        <span class="mitem"><img src="assets/logos-w/ageas.png" alt="Ageas" loading="lazy"></span>
+        <span class="mitem"><img src="assets/logos-w/nestle.svg" alt="Nestl&eacute;" loading="lazy"></span>
+        <span class="mitem"><img src="assets/logos-w/mercedes-benz.png" alt="Mercedes-Benz" loading="lazy"></span>
+        <span class="mitem"><img src="assets/logos-w/vans.png" alt="Vans" loading="lazy"></span>
+        <span class="mitem"><img src="assets/logos-w/vodafone.png" alt="Vodafone" loading="lazy"></span>
+        <span class="mitem"><img src="assets/logos-w/santander.png" alt="Santander" loading="lazy"></span>
+        <span class="mitem"><img src="assets/logos-w/framer.png" alt="Framer" loading="lazy"></span>
       </div>
       <div class="mset" aria-hidden="true">
-        <span class="mitem"><img src="assets/logos/redbull.png" alt="Red Bull" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/adidas.png" alt="Adidas" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/cupra.png" alt="CUPRA" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/governo.png" alt="Governo de Portugal" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/samsung.png" alt="Samsung" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/worten.png" alt="Worten" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/fnac.png" alt="Fnac" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/galp.png" alt="Galp" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/farfetch.png" alt="Farfetch" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/yves-rocher.png" alt="Yves Rocher" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/ageas.png" alt="Ageas" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/nestle.png" alt="Nestl&eacute;" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/lg.png" alt="LG" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/mercedes-benz.png" alt="Mercedes-Benz" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/loreal.png" alt="L&rsquo;Or&eacute;al" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/vans.png" alt="Vans" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/vodafone.png" alt="Vodafone" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/santander.png" alt="Santander" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/framer.png" alt="Framer" loading="lazy"></span>
-        <span class="mitem"><img src="assets/logos/sketch.png" alt="Sketch" loading="lazy"></span>
+        <span class="mitem"><img src="assets/logos-w/redbull.png" alt="Red Bull" loading="lazy"></span>
+        <span class="mitem"><img src="assets/logos-w/adidas.svg" alt="Adidas" loading="lazy"></span>
+        <span class="mitem"><img src="assets/logos-w/samsung.png" alt="Samsung" loading="lazy"></span>
+        <span class="mitem"><img src="assets/logos-w/governo-de-portugal.svg" alt="Governo de Portugal" loading="lazy"></span>
+        <span class="mitem"><img src="assets/logos-w/worten.svg" alt="Worten" loading="lazy"></span>
+        <span class="mitem"><img src="assets/logos-w/fnac.svg" alt="Fnac" loading="lazy"></span>
+        <span class="mitem"><img src="assets/logos-w/galp.svg" alt="Galp" loading="lazy"></span>
+        <span class="mitem"><img src="assets/logos-w/farfetch.svg" alt="Farfetch" loading="lazy"></span>
+        <span class="mitem"><img src="assets/logos-w/yves-rocher.svg" alt="Yves Rocher" loading="lazy"></span>
+        <span class="mitem"><img src="assets/logos-w/ageas.png" alt="Ageas" loading="lazy"></span>
+        <span class="mitem"><img src="assets/logos-w/nestle.svg" alt="Nestl&eacute;" loading="lazy"></span>
+        <span class="mitem"><img src="assets/logos-w/mercedes-benz.png" alt="Mercedes-Benz" loading="lazy"></span>
+        <span class="mitem"><img src="assets/logos-w/vans.png" alt="Vans" loading="lazy"></span>
+        <span class="mitem"><img src="assets/logos-w/vodafone.png" alt="Vodafone" loading="lazy"></span>
+        <span class="mitem"><img src="assets/logos-w/santander.png" alt="Santander" loading="lazy"></span>
+        <span class="mitem"><img src="assets/logos-w/framer.png" alt="Framer" loading="lazy"></span>
       </div>
     </div>
   </div>
