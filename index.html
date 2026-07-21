@@ -297,10 +297,12 @@ footer{background:var(--n0);border-top:1px solid var(--line)}
   .testimonial blockquote{font-size:34px;font-weight:400}
   .foot-in{padding:24px}
 }
-:where(.body,.body-sm){max-width:68ch}.belief p{max-width:34ch}h1,.d-lg,.d-md,.service-head h3,.testimonial blockquote{text-wrap:balance}.body,.body-lg,.body-sm,.caption,.belief p{text-wrap:pretty}</style>
+:where(.body,.body-sm){max-width:68ch}.belief p{max-width:34ch}h1,.d-lg,.d-md,.service-head h3,.testimonial blockquote{text-wrap:balance}.body,.body-lg,.body-sm,.caption,.belief p{text-wrap:pretty}/* ScrollScale — vertical tick ruler reading indicator, ported from edit-premium */.sscale{position:fixed;left:26px;top:50%;transform:translateY(-50%);z-index:40;pointer-events:none;display:flex;flex-direction:column;align-items:flex-start;--tick:var(--muted);--fill:var(--accent)}.sscale__pill{pointer-events:auto;font-size:11px;font-weight:500;letter-spacing:.1em;line-height:1;color:var(--fill);border:1px solid var(--line);padding:6px 9px;font-variant-numeric:tabular-nums;background:rgba(14,14,15,.55);text-transform:uppercase}.sscale__pill--end{opacity:.5;border-color:transparent;color:var(--muted);padding-left:0}.sscale__ticks{position:relative;display:flex;flex-direction:column;justify-content:space-between;height:58vh;margin:16px 0}.sscale__tick{position:relative;height:2px;width:13px;background:var(--tick);opacity:.32;transition:width .34s cubic-bezier(.16,1,.3,1),opacity .34s ease,background-color .34s ease}.sscale__tick.is-major{width:22px;opacity:.5}.sscale__tick.is-on{background:var(--fill);opacity:.95}.sscale__tick.is-on.is-major{width:30px;opacity:1}.sscale__tick.is-head{width:40px;background:var(--fill);opacity:1}.sscale__tick.is-major{pointer-events:auto;cursor:pointer}.sscale__tick.is-major::after{content:attr(data-label);position:absolute;left:100%;margin-left:15px;top:50%;transform:translateY(-50%) translateX(-4px);white-space:nowrap;font-size:12px;letter-spacing:-.01em;color:var(--subtle);opacity:0;transition:opacity .2s ease,transform .2s ease}.sscale__tick.is-major:hover::after{opacity:1;transform:translateY(-50%) translateX(0)}header.hero,.about,.brands,.services,.work,.beliefs,.contact{scroll-margin-top:80px}@media (prefers-reduced-motion:reduce){.sscale__tick{transition:none}}@media (max-width:1300px){.sscale{display:none}}</style>
 </head>
 <script>document.documentElement.classList.add('js')</script>
 <body id="b-top">
+<nav class="sscale" aria-label="Reading progress" data-total="46"><span class="sscale__pill" data-sscale-current aria-live="polite">01/07</span><div class="sscale__ticks" data-sscale-ticks aria-hidden="true"></div><span class="sscale__pill sscale__pill--end" data-sscale-total>07</span></nav>
+
 
 <nav>
   <div class="nav-in">
@@ -549,6 +551,67 @@ footer{background:var(--n0);border-top:1px solid var(--line)}
   if(document.readyState==='complete') ready();
   else window.addEventListener('load', ready);
   setTimeout(function(){ d.classList.add('ready'); }, 1600); /* safety net */
+})();
+</script>
+
+<script>
+(function(){
+  var root=document.querySelector('.sscale'); if(!root) return;
+  var DENSE=parseInt(root.getAttribute('data-total')||'46',10);
+  var box=root.querySelector('[data-sscale-ticks]');
+  var cur=root.querySelector('[data-sscale-current]');
+  var tot=root.querySelector('[data-sscale-total]');
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var pad=function(n){return String(n).padStart(2,'0');};
+
+  var MAP=[['header.hero','Top'],['.about','About'],['.brands','Brands'],['.services','What I do'],['.work','Selected work'],['.beliefs','How I work'],['.contact','Contact']];
+  var secs=[],labels=[];
+  MAP.forEach(function(p){var el=document.querySelector(p[0]); if(el&&el.offsetParent!==null&&getComputedStyle(el).display!=='none'){secs.push(el);labels.push(p[1]);}});
+  var S=secs.length; if(!S) return;
+  tot.textContent=pad(S);
+
+  var ticks=[];
+  for(var i=0;i<DENSE;i++){var t=document.createElement('i');t.className='sscale__tick';box.appendChild(t);ticks.push(t);}
+
+  var maxScroll=1, tops=[];
+  function measure(){
+    maxScroll=Math.max(1,document.documentElement.scrollHeight-window.innerHeight);
+    tops=secs.map(function(el){return el.getBoundingClientRect().top+window.scrollY;});
+    ticks.forEach(function(t){t.classList.remove('is-major');t.removeAttribute('data-label');t.onclick=null;});
+    var used={};
+    secs.forEach(function(el,si){
+      var frac=Math.min(1,tops[si]/maxScroll);
+      var idx=Math.min(DENSE-1,Math.round(frac*(DENSE-1)));
+      while(used[idx]&&idx<DENSE-1)idx++; used[idx]=1;
+      var t=ticks[idx];
+      t.classList.add('is-major'); t.setAttribute('data-label',labels[si]);
+      (function(target){t.onclick=function(){target.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});};})(el);
+    });
+  }
+
+  var lastOn=-1,lastSec=-1,queued=false;
+  function paint(){
+    queued=false;
+    var y=window.scrollY;
+    var p=Math.min(1,Math.max(0,y/maxScroll));
+    var on=Math.max(1,Math.round(p*DENSE));
+    if(on!==lastOn){
+      for(var i=0;i<DENSE;i++){ticks[i].classList.toggle('is-on',i<on);ticks[i].classList.toggle('is-head',i===on-1);}
+      lastOn=on;
+    }
+    var probe=y+window.innerHeight*0.35, si=0;
+    for(var k=0;k<S;k++){if(tops[k]<=probe)si=k;}
+    if(si!==lastSec){cur.textContent=pad(si+1)+'/'+pad(S);lastSec=si;}
+  }
+  function onScroll(){if(!queued){queued=true;requestAnimationFrame(paint);}}
+  function onResize(){measure();lastOn=-1;lastSec=-1;paint();}
+
+  measure();
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onResize,{passive:true});
+  window.addEventListener('load',onResize);
+  document.addEventListener('visibilitychange',function(){if(!document.hidden){lastOn=-1;lastSec=-1;paint();}});
+  paint();
 })();
 </script>
 </body>
